@@ -16,7 +16,7 @@ export const routes: Routes = [
       .then(m => m.PagesModule),
   },
   {
-    path: 'auth',
+    path: '',
     component: NbAuthComponent,
     children: [
       {
@@ -24,28 +24,13 @@ export const routes: Routes = [
         component: NbLoginComponent,
       },
       {
-        path: 'login',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
-      {
         path: 'logout',
         component: NbLogoutComponent,
       },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
+
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+
   { path: '**', redirectTo: 'pages' },
 ];
 

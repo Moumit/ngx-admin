@@ -5,46 +5,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Home',
     group: true,
   },
-
   {
-    title: 'Charts',
-    icon: 'pie-chart-outline',
-    home: true,
-    children: [
-      {
-        title: 'Echarts',
-        link: '/pages/charts/echarts',
-      },
-      {
-        title: 'Charts.js',
-        link: '/pages/charts/chartjs',
-      },
-      {
-        title: 'D3',
-        link: '/pages/charts/d3',
-      },
-    ],
-  },
-  {
-    title: 'Auth',
+    title: 'Login',
     icon: 'lock-outline',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
+    link: '/',
+    home: true,
   },
 ];
