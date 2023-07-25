@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
-import { User, UserData } from '../../../@core/data/users';
+
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import AdminUser from '../../../Entity/AdminUser';
+import { AdminUserService } from '../../../Service/AdminUser.service';
 
 @Component({
   selector: 'ngx-header',
@@ -15,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
-  user: any;
+  user: AdminUser;
 
   themes = [
     {
@@ -43,7 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private themeService: NbThemeService,
-    private userService: UserData,
+    private userService: AdminUserService,
     private layoutService: LayoutService,
     private breakpointService: NbMediaBreakpointsService) {
   }
@@ -51,9 +53,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
-    this.userService.getUser()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((user: User) => this.user = user);
+    //TODO:Setup username
+    // this.userService.getUser()
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((user: User) => this.user = user);
+
+    this.user = { name: 'Moumit Mondal', picture: '', UserName: '', SessionToken: '' }
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()

@@ -13,10 +13,10 @@ import {
   SeoService,
   StateService,
 } from './utils';
-import { UserData } from './data/users';
-import { UserService } from './mock/users.service';
+import User from '../Entity/User';
+import { AdminUserService } from '../Service/AdminUser.service';
 const DATA_SERVICES = [
-  { provide: UserData, useClass: UserService }]
+  { provide: User, useClass: AdminUserService }]
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
